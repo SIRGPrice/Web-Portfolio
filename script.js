@@ -1,7 +1,8 @@
 /* =========================================================
    AI Engineering Portfolio
    Renders the open-source projects grid from the public
-   GitHub REST API. No tokens, no build step.
+   GitHub REST API, wires the mobile nav, updates years.
+   No tokens, no build step.
    ========================================================= */
 
 (function () {
@@ -10,39 +11,6 @@
     const USER = 'SIRGPrice';
     const API = 'https://api.github.com';
     const HEADERS = { Accept: 'application/vnd.github+json' };
-
-    const LANG_COLORS = {
-        JavaScript: '#f1e05a',
-        TypeScript: '#3178c6',
-        Python: '#3572A5',
-        Java: '#b07219',
-        Kotlin: '#A97BFF',
-        Swift: '#F05138',
-        Go: '#00ADD8',
-        Rust: '#dea584',
-        C: '#555555',
-        'C++': '#f34b7d',
-        'C#': '#178600',
-        PHP: '#4F5D95',
-        Ruby: '#701516',
-        HTML: '#e34c26',
-        CSS: '#563d7c',
-        SCSS: '#c6538c',
-        Shell: '#89e051',
-        Bash: '#89e051',
-        PowerShell: '#012456',
-        Dart: '#00B4AB',
-        Lua: '#000080',
-        Elixir: '#6e4a7e',
-        Haskell: '#5e5086',
-        Scala: '#c22d40',
-        R: '#198CE7',
-        Jupyter: '#DA5B0B',
-        Dockerfile: '#384d54',
-        Makefile: '#427819',
-        Vue: '#41b883',
-        Svelte: '#ff3e00'
-    };
 
     const $ = (id) => document.getElementById(id);
 
@@ -91,7 +59,6 @@
 
         sorted.forEach((repo) => {
             const lang = repo.language;
-            const langColor = (lang && LANG_COLORS[lang]) || '#888';
             const desc = repo.description || 'No description provided.';
             const updated = new Date(repo.pushed_at).toLocaleDateString('en-US', { year: 'numeric', month: 'short' });
 
@@ -107,7 +74,7 @@
                 </div>
                 <p class="card-desc">${escapeHTML(desc)}</p>
                 <div class="card-foot">
-                    ${lang ? `<span class="lang"><span class="lang-dot" style="background:${langColor}"></span>${escapeHTML(lang)}</span>` : ''}
+                    ${lang ? `<span class="lang">${escapeHTML(lang)}</span>` : ''}
                     <span class="metric" title="Stars"><span class="icon">★</span>${formatNumber(repo.stargazers_count)}</span>
                     <span class="metric" title="Forks"><span class="icon">⑂</span>${formatNumber(repo.forks_count)}</span>
                     <span class="updated">${updated}</span>
@@ -133,8 +100,30 @@
         }
     }
 
+    function wireMobileNav() {
+        const btn = $('hamburger');
+        const panel = $('mobile-nav');
+        if (!btn || !panel) return;
+        btn.addEventListener('click', () => {
+            const open = btn.getAttribute('aria-expanded') === 'true';
+            btn.setAttribute('aria-expanded', String(!open));
+            if (open) {
+                panel.setAttribute('hidden', '');
+            } else {
+                panel.removeAttribute('hidden');
+            }
+        });
+        panel.addEventListener('click', (e) => {
+            if (e.target.closest('a')) {
+                btn.setAttribute('aria-expanded', 'false');
+                panel.setAttribute('hidden', '');
+            }
+        });
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
         loadRepos();
+        wireMobileNav();
         const y = new Date().getFullYear();
         const fy = $('footer-year'); if (fy) fy.textContent = y;
         const hy = $('hero-year');   if (hy) hy.textContent = y;
