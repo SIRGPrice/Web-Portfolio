@@ -446,35 +446,50 @@ img, svg { max-width: 100%; display: block; }
     grid-column: full;
     display: flex;
     flex-direction: column;
-    gap: 1.75rem;
+    gap: 1.25rem;
     margin-top: 2rem;
     width: 100%;
     overflow: hidden;
-    -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
-            mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
 }
 .marquee-track {
     display: flex;
     width: max-content;
+    will-change: transform;
 }
 .marquee-group {
     display: flex;
     align-items: center;
-    gap: 3.5rem;
-    padding-right: 3.5rem;
+    gap: 2.75rem;
+    padding-right: 2.75rem;
     flex-shrink: 0;
 }
-.marquee-group img {
-    height: 34px;
-    width: 34px;
+.marquee-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-shrink: 0;
+    color: var(--ink);
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+}
+.marquee-item img,
+.marquee-item svg {
+    width: 22px;
+    height: 22px;
     object-fit: contain;
-    filter: opacity(0.55) saturate(0);
+    flex-shrink: 0;
+    filter: saturate(0);
     transition: filter 0.2s var(--ease);
 }
-.marquee-group img:hover { filter: opacity(0.95) saturate(1); }
+.marquee-item:hover img,
+.marquee-item:hover svg { filter: saturate(1); }
+.marquee-item-hf img,
+.marquee-item-hf svg { filter: none; }
 
-.marquee-left  { animation: marquee-scroll-left  42s linear infinite; }
-.marquee-right { animation: marquee-scroll-right 48s linear infinite; }
+.marquee-left  { animation: marquee-scroll-left  50s linear infinite; }
+.marquee-right { animation: marquee-scroll-right 55s linear infinite; }
 
 @keyframes marquee-scroll-left  { to   { transform: translateX(-50%); } }
 @keyframes marquee-scroll-right { from { transform: translateX(-50%); } to { transform: translateX(0); } }
