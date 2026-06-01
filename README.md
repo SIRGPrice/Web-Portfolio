@@ -1,12 +1,12 @@
 # SIRGPrice.github.io
 
-Personal site of **Antón Fernández Pérez** — a live, API-driven view of my GitHub work.
+Personal site of **Antón Fernández Pérez** — a live, API-driven view of the GitHub work.
 
 🌐 **Live site:** [sirgprice.github.io](https://sirgprice.github.io/)
 
 ## About
 
-A single-page site with a LlamaIndex-inspired visual language: monochrome base, aurora gradient accent, monospace labels and generous whitespace. All content is rendered at runtime from the public GitHub REST API.
+A single-page portfolio with a LlamaIndex-inspired visual language: monochrome base, aurora gradient accent, monospace labels and generous whitespace. All visible content is rendered at runtime from the public GitHub REST API.
 
 ## Stack
 

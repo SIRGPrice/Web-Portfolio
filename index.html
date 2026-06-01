@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Antón Fernández Pérez — AI Engineer · Head of AI at ADIMATECH</title>
-    <meta name="description" content="AI engineer building local-first systems — MCP servers, IDE extensions and edge inference. Head of AI at ADIMATECH S.L." />
+    <title>Antón Fernández Pérez — AI Engineering Portfolio</title>
+    <meta name="description" content="Technical competencies and open-source projects in local-first AI, MCP servers, IDE extensions and edge inference." />
     <meta name="author" content="Antón Fernández Pérez" />
-    <meta property="og:title" content="Antón Fernández Pérez — AI Engineer" />
-    <meta property="og:description" content="AI engineer building local-first systems — MCP servers, IDE extensions and edge inference." />
+    <meta property="og:title" content="Antón Fernández Pérez — AI Engineering Portfolio" />
+    <meta property="og:description" content="Technical competencies and open-source projects in local-first AI, MCP servers, IDE extensions and edge inference." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://sirgprice.github.io/" />
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%2337D7FA'/><stop offset='.4' stop-color='%234B72FE'/><stop offset='.68' stop-color='%23FF8DF2'/><stop offset='1' stop-color='%23FF8705'/></linearGradient></defs><rect width='32' height='32' rx='8' fill='url(%23g)'/><path d='M21 9.5a5.5 5.5 0 1 0 0 7H17a3 3 0 1 1 0-7h4z' fill='white'/></svg>" />
+    <link rel="icon" type="image/png" href="/codeblue-logo.png" />
+    <link rel="apple-touch-icon" href="/codeblue-logo.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://api.github.com" />
@@ -18,36 +19,17 @@
     <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <!-- Announcement bar -->
-    <a class="bar" href="#experience">
-        <span class="bar-inner">Now: Head of AI at ADIMATECH S.L. · Spain · Local-first AI tooling</span>
-        <span class="bar-arrow" aria-hidden="true">→</span>
-    </a>
-
     <!-- Header -->
     <header class="header">
         <div class="header-inner">
             <a href="/" class="brand" aria-label="Antón Fernández Pérez home">
-                <svg class="brand-mark" width="28" height="28" viewBox="0 0 32 32" aria-hidden="true">
-                    <defs>
-                        <linearGradient id="brandGrad" x1="0" y1="0" x2="1" y2="1">
-                            <stop offset="0" stop-color="#37D7FA" />
-                            <stop offset=".4" stop-color="#4B72FE" />
-                            <stop offset=".68" stop-color="#FF8DF2" />
-                            <stop offset="1" stop-color="#FF8705" />
-                        </linearGradient>
-                    </defs>
-                    <rect width="32" height="32" rx="8" fill="url(#brandGrad)" />
-                    <path d="M21 9.5a5.5 5.5 0 1 0 0 7H17a3 3 0 1 1 0-7h4z" fill="#fff" />
-                </svg>
+                <img class="brand-mark" src="/codeblue-logo.png" alt="" width="36" height="36" />
                 <span class="brand-word">Antón F. Pérez</span>
             </a>
 
             <nav class="nav" aria-label="Primary">
-                <a href="#experience">Experience</a>
-                <a href="#skills">Skills</a>
+                <a href="#competencies">Competencies</a>
                 <a href="#projects">Projects</a>
-                <a href="#contact">Contact</a>
             </nav>
 
             <a href="/cv.pdf" target="_blank" rel="noopener" class="btn btn-gradient header-cta" download>
@@ -60,26 +42,17 @@
         <!-- Hero -->
         <section class="section section-white hero">
             <div class="container">
-                <p class="label">AI Engineer · <span id="hero-year">2026</span></p>
+                <p class="label">AI Engineering Portfolio · <span id="hero-year">2026</span></p>
                 <h1 class="display">
                     Antón Fernández Pérez.
-                    <span class="display-accent">I build local-first AI systems — from protocol to production.</span>
+                    <span class="display-accent">Local-first AI systems — from protocol to production.</span>
                 </h1>
                 <p class="lead">
-                    I'm <strong>Antón</strong> — an AI engineer and <strong>Head of AI at ADIMATECH S.L.</strong>
-                    I design MCP servers, IDE extensions, and edge inference stacks that bring
-                    large language models close to the developer's machine.
+                    Technical portfolio covering MCP servers, IDE extensions, edge inference and agentic tooling.
+                    Open-source work published under the
+                    <a href="https://github.com/SIRGPrice" target="_blank" rel="noopener" class="inline-link">SIRGPrice</a>
+                    GitHub account.
                 </p>
-
-                <ul class="hero-meta">
-                    <li><span class="hero-meta-key">Based in</span><span>Spain</span></li>
-                    <li><span class="hero-meta-key">Role</span><span>Head of AI · ADIMATECH S.L.</span></li>
-                    <li>
-                        <span class="hero-meta-key">GitHub</span>
-                        <a href="https://github.com/SIRGPrice" target="_blank" rel="noopener">@SIRGPrice →</a>
-                    </li>
-                </ul>
-
                 <div class="cta-row">
                     <a class="btn btn-primary" href="/cv.pdf" download>
                         Download CV
@@ -93,91 +66,14 @@
             </div>
         </section>
 
-        <!-- Stats strip -->
-        <section class="section section-light">
+        <!-- Competencies -->
+        <section class="section section-light" id="competencies">
             <div class="container">
-                <p class="label">Live snapshot from GitHub</p>
-                <div class="stats">
-                    <div class="stat">
-                        <span class="stat-value" id="stat-repos">–</span>
-                        <span class="stat-label">Public repositories</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-value" id="stat-stars">–</span>
-                        <span class="stat-label">Stars earned</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-value" id="stat-followers">–</span>
-                        <span class="stat-label">GitHub followers</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-value" id="stat-langs">–</span>
-                        <span class="stat-label">Languages in use</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Experience -->
-        <section class="section section-white" id="experience">
-            <div class="container">
-                <div class="section-head">
-                    <div>
-                        <p class="label">Experience</p>
-                        <h2 class="h2">Where I've shipped.</h2>
-                    </div>
-                    <a href="/cv.pdf" target="_blank" rel="noopener" class="link-arrow" download>
-                        Full CV (PDF) <span aria-hidden="true">↓</span>
-                    </a>
-                </div>
-
-                <ol class="timeline">
-                    <li class="timeline-item">
-                        <div class="timeline-head">
-                            <div>
-                                <h3 class="timeline-role">Head of AI</h3>
-                                <p class="timeline-org">ADIMATECH S.L.</p>
-                            </div>
-                            <div class="timeline-meta">
-                                <span class="timeline-type">Full-time</span>
-                                <span class="timeline-dates">Jan 2025 — Present</span>
-                            </div>
-                        </div>
-                        <ul class="timeline-bullets">
-                            <li>Advise the leadership team on strategy across AI, data, edge hardware, and the distributed economy.</li>
-                            <li>Designed the company's <strong>local-inference ecosystem</strong> and the rollout of local agents across the org.</li>
-                            <li>Trained multiple departments on integrating AI into production workflows and client delivery.</li>
-                        </ul>
-                    </li>
-
-                    <li class="timeline-item">
-                        <div class="timeline-head">
-                            <div>
-                                <h3 class="timeline-role">Hands-On Product Owner</h3>
-                                <p class="timeline-org">ADIMATECH S.L.</p>
-                            </div>
-                            <div class="timeline-meta">
-                                <span class="timeline-type">Full-time</span>
-                                <span class="timeline-dates">Sep 2023 — Jan 2025</span>
-                            </div>
-                        </div>
-                        <ul class="timeline-bullets">
-                            <li>Shipped commercial and industrial AI / data products — as an IC, as a lead, or in teams of 2–5 depending on scope.</li>
-                            <li>Owned the product layer end-to-end: problem framing, model choice, integration, and customer rollout.</li>
-                        </ul>
-                    </li>
-                </ol>
-            </div>
-        </section>
-
-        <!-- Skills -->
-        <section class="section section-light" id="skills">
-            <div class="container">
-                <p class="label">Skills</p>
-                <h2 class="h2">What I work with, day to day.</h2>
+                <p class="label">Competencies</p>
+                <h2 class="h2">Technical surface.</h2>
                 <p class="lead small">
-                    A compressed view of my technical surface, drawn from my CV. See the
-                    <a href="/cv.pdf" target="_blank" rel="noopener" class="inline-link">full PDF</a> for context.
+                    Compressed view of the technical competencies, drawn from the
+                    <a href="/cv.pdf" target="_blank" rel="noopener" class="inline-link">full CV</a>.
                 </p>
 
                 <div class="skills-grid">
@@ -215,7 +111,7 @@
                             <li class="chip">Whisper</li>
                             <li class="chip">YOLO</li>
                             <li class="chip">OpenCV</li>
-                            <li class="chip">OpenAI / Anthropic</li>
+                            <li class="chip">OpenAI · Anthropic</li>
                         </ul>
                     </article>
 
@@ -289,7 +185,7 @@
             </div>
         </section>
 
-        <!-- Projects (live) -->
+        <!-- Projects -->
         <section class="section section-white" id="projects">
             <div class="container">
                 <div class="section-head">
@@ -312,94 +208,6 @@
                 </div>
             </div>
         </section>
-
-        <!-- Education & Languages -->
-        <section class="section section-light">
-            <div class="container two-col">
-                <div>
-                    <p class="label">Education</p>
-                    <h2 class="h2">Where I trained.</h2>
-                </div>
-                <div class="edu-block">
-                    <article class="edu-item">
-                        <div>
-                            <h3 class="edu-org">Universidad de Vigo</h3>
-                            <p class="edu-degree">Industrial &amp; Electronic Engineering</p>
-                        </div>
-                        <span class="edu-dates">Class of 2023</span>
-                    </article>
-
-                    <div class="lang-list">
-                        <p class="label" style="margin-top:2rem;">Languages</p>
-                        <ul class="meta-list">
-                            <li>
-                                <span class="meta-key">Español</span>
-                                <span class="meta-val">Native</span>
-                            </li>
-                            <li>
-                                <span class="meta-key">English</span>
-                                <span class="meta-val">C1</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Code preview -->
-        <section class="section section-white">
-            <div class="container">
-                <p class="label">How this site works</p>
-                <h2 class="h2">One page, one API call.</h2>
-                <p class="lead small">
-                    No build step, no frameworks. The page you are reading is rendered from a single
-                    fetch to the public GitHub REST API.
-                </p>
-
-                <div class="codeblock">
-                    <div class="codeblock-head">
-                        <p class="codeblock-lang">fetch.js</p>
-                        <button class="codeblock-copy" type="button" aria-label="Copy snippet">
-                            <svg class="icon-copy" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
-                            <svg class="icon-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
-                            <span class="copy-label">Copy</span>
-                        </button>
-                    </div>
-                    <pre class="codeblock-body"><code><span class="c">// Pulls profile + repos straight from GitHub.</span>
-<span class="k">const</span> <span class="v">user</span> = <span class="k">await</span> <span class="f">fetch</span>(<span class="s">`https://api.github.com/users/<span class="user-tag">SIRGPrice</span>`</span>)
-  .<span class="f">then</span>(<span class="v">r</span> =&gt; <span class="v">r</span>.<span class="f">json</span>());
-
-<span class="k">const</span> <span class="v">repos</span> = <span class="k">await</span> <span class="f">fetch</span>(<span class="s">`https://api.github.com/users/<span class="user-tag">SIRGPrice</span>/repos?per_page=100&sort=updated`</span>)
-  .<span class="f">then</span>(<span class="v">r</span> =&gt; <span class="v">r</span>.<span class="f">json</span>());
-
-<span class="v">console</span>.<span class="f">log</span>(<span class="v">user</span>.<span class="p">name</span>, <span class="s">"·"</span>, <span class="v">repos</span>.<span class="p">length</span>, <span class="s">"repos"</span>);</code></pre>
-                </div>
-            </div>
-        </section>
-
-        <!-- CTA / Contact -->
-        <section class="section section-white cta-section" id="contact">
-            <div class="container cta-wrap">
-                <div class="cta-inner">
-                    <h2 class="h2 cta-title">Want to build something together?</h2>
-                    <p class="lead small center">
-                        Open to collaborations on local-first AI tooling, MCP integrations and edge inference.
-                    </p>
-                    <div class="cta-row center">
-                        <a class="btn btn-primary" href="/cv.pdf" download>
-                            Download CV
-                            <span aria-hidden="true">↓</span>
-                        </a>
-                        <a class="btn btn-secondary" href="mailto:antonfernperez@gmail.com">
-                            antonfernperez@gmail.com
-                        </a>
-                        <a class="btn btn-gradient" href="https://github.com/SIRGPrice" target="_blank" rel="noopener">
-                            Follow on GitHub
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
     </main>
 
     <!-- Footer -->
@@ -407,7 +215,7 @@
         <div class="container footer-inner">
             <p class="mono">
                 © <span id="footer-year">2026</span> Antón Fernández Pérez ·
-                Built with HTML, CSS, JS ·
+                Static HTML, CSS and JavaScript ·
                 Deployed on GitHub Pages
             </p>
             <p class="mono dim">

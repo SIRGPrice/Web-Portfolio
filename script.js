@@ -1,6 +1,7 @@
 /* =========================================================
-   SIRGPrice · Personal Site
-   Live data from the public GitHub API.
+   AI Engineering Portfolio
+   Renders the open-source projects grid from the public
+   GitHub REST API. No tokens, no build step.
    ========================================================= */
 
 (function () {
@@ -73,41 +74,12 @@
         return res.json();
     }
 
-    async function loadProfile() {
-        try {
-            const data = await fetchJSON(`${API}/users/${USER}`);
-
-            if (data.name) document.title = `${data.name} — Personal Site`;
-
-            const hire = $('meta-hire');
-            if (data.hireable === false) {
-                hire.textContent = 'Currently busy';
-            }
-
-            const loc = $('meta-location');
-            if (data.location) loc.textContent = data.location;
-
-            $('stat-repos').textContent = formatNumber(data.public_repos);
-            $('stat-followers').textContent = formatNumber(data.followers);
-        } catch (err) {
-            console.warn('Profile load failed:', err);
-        }
-    }
-
-    async function loadTotalStarsAndLangs(repos) {
-        const stars = repos.reduce((acc, r) => acc + (r.stargazers_count || 0), 0);
-        $('stat-stars').textContent = formatNumber(stars);
-
-        const langs = new Set(repos.map((r) => r.language).filter(Boolean));
-        $('stat-langs').textContent = String(langs.size);
-    }
-
     function renderRepos(repos) {
         const grid = $('projects-grid');
         grid.innerHTML = '';
 
         if (!repos.length) {
-            grid.innerHTML = '<p class="muted" style="grid-column:1/-1;text-align:center;color:var(--muted);padding:2rem;">No public repositories yet.</p>';
+            grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:var(--muted);padding:2rem;">No public repositories.</p>';
             return;
         }
 
@@ -148,7 +120,6 @@
     async function loadRepos() {
         try {
             const data = await fetchJSON(`${API}/users/${USER}/repos?per_page=100&type=owner&sort=updated`);
-            await loadTotalStarsAndLangs(data);
             renderRepos(data);
         } catch (err) {
             console.error('Repos load failed:', err);
@@ -156,44 +127,14 @@
             grid.innerHTML = `
                 <a class="card" href="https://github.com/${USER}?tab=repositories" target="_blank" rel="noopener"
                    style="grid-column:1/-1;text-align:center;color:var(--muted);align-items:center;justify-content:center;">
-                    <p style="margin:0;">Couldn't load repositories right now.</p>
-                    <p style="margin:0.5rem 0 0;font-size:0.85rem;color:var(--ink);">Browse them on GitHub →</p>
+                    <p style="margin:0;">Repository list unavailable.</p>
+                    <p style="margin:0.5rem 0 0;font-size:0.85rem;color:var(--ink);">Browse on GitHub →</p>
                 </a>`;
         }
     }
 
-    /* --------- Copy-to-clipboard for the code block --------- */
-    function wireCopyButton() {
-        const btn = document.querySelector('.codeblock-copy');
-        if (!btn) return;
-        const codeEl = document.querySelector('.codeblock-body code');
-        btn.addEventListener('click', async () => {
-            const text = codeEl ? codeEl.innerText : '';
-            try {
-                await navigator.clipboard.writeText(text);
-            } catch {
-                const ta = document.createElement('textarea');
-                ta.value = text;
-                document.body.appendChild(ta);
-                ta.select();
-                document.execCommand('copy');
-                ta.remove();
-            }
-            btn.classList.add('copied');
-            const label = btn.querySelector('.copy-label');
-            if (label) label.textContent = 'Copied';
-            setTimeout(() => {
-                btn.classList.remove('copied');
-                if (label) label.textContent = 'Copy';
-            }, 1800);
-        });
-    }
-
     document.addEventListener('DOMContentLoaded', () => {
-        loadProfile();
         loadRepos();
-        wireCopyButton();
-
         const y = new Date().getFullYear();
         const fy = $('footer-year'); if (fy) fy.textContent = y;
         const hy = $('hero-year');   if (hy) hy.textContent = y;
