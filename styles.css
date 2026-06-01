@@ -936,6 +936,30 @@ img, svg { max-width: 100%; display: block; }
 }
 
 /* =========================================================
+   FOOTER MARK (AGENTIC AI wordmark, below the bottom bar)
+   ========================================================= */
+
+.footer-mark {
+    width: 100%;
+    padding: 2.5rem var(--gap) 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--paper);
+    overflow: hidden;
+}
+.footer-mark svg {
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
+    display: block;
+}
+@media (max-width: 720px) {
+    .footer-mark { padding: 1.5rem var(--gap) 1rem; }
+    .footer-mark svg { max-width: 100%; }
+}
+
+/* =========================================================
    A11Y
    ========================================================= */
 
