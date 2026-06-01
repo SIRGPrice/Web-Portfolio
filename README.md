@@ -1,35 +1,35 @@
 # SIRGPrice.github.io
 
-Personal portfolio of **Antón Fernández Pérez** — focused on GitHub projects, contributions and code.
+Personal site of **Antón Fernández Pérez** — a live, API-driven view of my GitHub work.
 
 🌐 **Live site:** [sirgprice.github.io](https://sirgprice.github.io/)
 
 ## About
 
-A minimalist, glassmorphism-styled single-page site that pulls live data from the public GitHub API — profile, repository list, and contribution graph — and is deployed automatically through [GitHub Pages](https://pages.github.com/).
+A single-page site with a LlamaIndex-inspired visual language: monochrome base, aurora gradient accent, monospace labels and generous whitespace. All content is rendered at runtime from the public GitHub REST API.
 
 ## Stack
 
-- Pure HTML, CSS and vanilla JavaScript (no build step, no dependencies)
-- Public GitHub REST API for live data
-- [ghchart.rshah.org](https://ghchart.rshah.org/) for the contribution graph
-- Glassmorphism UI over an animated aurora gradient
+- Pure HTML, CSS, and vanilla JavaScript — no build step, no dependencies.
+- [Space Grotesk](https://fonts.google.com/specimen/Space+Grotesk) and [JetBrains Mono](https://www.jetbrains.com/lp/mono/) via Google Fonts.
+- Public GitHub REST API for live data.
+- Hosted on [GitHub Pages](https://pages.github.com/).
 
 ## Files
 
-| File         | Purpose                                                      |
-| ------------ | ------------------------------------------------------------ |
-| `index.html` | Page structure and metadata.                                 |
-| `styles.css` | Visual system: gradient, glass surfaces, typography, motion. |
-| `script.js`  | Fetches `/users/SIRGPrice`, repos, and counts stars.         |
+| File         | Purpose                                                              |
+| ------------ | -------------------------------------------------------------------- |
+| `index.html` | Page structure and metadata.                                         |
+| `styles.css` | Visual system: light theme, gradient accent, grid, typography.       |
+| `script.js`  | Fetches profile + repos from `api.github.com`, renders project grid. |
 
 ## Bidirectional linking
 
-This repository is the source of truth for [sirgprice.github.io](https://sirgprice.github.io/). The repository's **Website** field on GitHub is set to that URL, and every page on the site links back to the source repository and to the [GitHub profile](https://github.com/SIRGPrice).
+The repository's **Website** field on GitHub is set to [sirgprice.github.io](https://sirgprice.github.io/), and the site links back to the source repo and the [@SIRGPrice](https://github.com/SIRGPrice) profile.
 
 ## Local preview
 
-No build needed. Just open `index.html` in a browser, or:
+No build needed. Open `index.html` in a browser, or serve the directory:
 
 ```bash
 python -m http.server 8000
@@ -38,4 +38,4 @@ python -m http.server 8000
 
 ## License
 
-MIT — see [LICENSE](./LICENSE) if present, otherwise defaults to all-rights-reserved.
+MIT — see [LICENSE](./LICENSE).
