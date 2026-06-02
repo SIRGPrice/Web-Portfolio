@@ -1,8 +1,8 @@
 # Anton Fernández — Portfolio
 
-Personal portfolio of **Anton Fernández Pérez** — a live view of the work published under the [SIRGPrice](https://github.com/SIRGPrice) GitHub account.
-
 **Live site:** [anton-fernandez-perez.com](https://anton-fernandez-perez.com)
+
+Personal portfolio of **Anton Fernández Pérez** — a live view of the work published under the [SIRGPrice](https://github.com/SIRGPrice) GitHub account.
 
 ## About
 
