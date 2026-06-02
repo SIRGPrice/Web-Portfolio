@@ -6,8 +6,6 @@ Personal portfolio of **Anton Fernández Pérez** — a live view of the work pu
 
 ## About
 
-A single-page portfolio with a LlamaIndex-inspired visual language: monochrome base, aurora gradient accent, monospace labels and generous whitespace. Project cards are rendered at runtime from the public GitHub REST API.
-
 The site is hosted on **GitHub Pages** and served at the custom domain **`anton-fernandez-perez.com`** (configured via the `CNAME` file in this repo; DNS managed in Cloudflare).
 
 ## Files
