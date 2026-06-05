@@ -133,12 +133,30 @@
         });
     }
 
+    function wireGalleryHover() {
+        const gallery = $('gallery');
+        if (!gallery) return;
+        let timer = null;
+        gallery.addEventListener('mouseenter', () => {
+            timer = setTimeout(() => {
+                gallery.classList.add('gallery-active');
+                timer = null;
+            }, 500);
+        });
+        gallery.addEventListener('mouseleave', () => {
+            if (timer) { clearTimeout(timer); timer = null; }
+            gallery.classList.remove('gallery-active');
+        });
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
         loadRepos();
         wireMobileNav();
         wireHoverPlay();
+        wireGalleryHover();
         const y = new Date().getFullYear();
         const fy = $('footer-year'); if (fy) fy.textContent = y;
         const hy = $('hero-year');   if (hy) hy.textContent = y;
     });
 })();
+
