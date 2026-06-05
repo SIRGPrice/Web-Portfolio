@@ -928,35 +928,17 @@ img, svg { max-width: 100%; display: block; }
     flex-direction: column;
     flex: 1 1 0;
     min-width: 0;
-    transition: width 0.2s var(--ease), flex 0.2s var(--ease), margin 0.2s var(--ease), opacity 0.2s var(--ease), box-shadow 0.2s var(--ease);
+    transition: width 0.2s var(--ease);
     z-index: 1;
 }
 
-/* Gallery section hover: list becomes vertical */
+/* Gallery section hover: list vertical, videos full width (respecting container margins) */
 #gallery:hover .video-list {
     flex-direction: column;
     align-items: center;
 }
-
-/* Video hover: enlarge to 75vw, centered. Higher specificity to override gallery-hover width. */
-#gallery .video-item:hover {
-    width: 75vw;
-    margin-left: auto;
-    margin-right: auto;
-    z-index: 10;
-    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.25);
-}
-.video-item:hover .video-title,
-.video-item:hover .video-context {
-    height: 0;
-    margin-top: 0;
-    opacity: 0;
-}
-
-/* Siblings: visible, shifted to avoid overlap (column layout) */
-.video-list:has(.video-item:hover) .video-item:not(:hover) {
-    width: 25vw;
-    opacity: 1;
+#gallery:hover .video-item {
+    width: 100%;
 }
 
 .video-frame {
@@ -1014,3 +996,4 @@ img, svg { max-width: 100%; display: block; }
     .skeleton { animation: none; }
 }
 ::selection { background: var(--aur-3); color: #000; }
+
