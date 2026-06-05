@@ -911,29 +911,43 @@ img, svg { max-width: 100%; display: block; }
     flex-wrap: wrap;
     gap: 1.5rem;
     align-items: flex-start;
+    overflow: visible;
 }
 @media (max-width: 960px) {
     .video-list { flex-direction: column; gap: 2rem; }
-    .video-list .video-item { flex: 1 1 100% !important; }
+    .video-list .video-item {
+        flex: 0 0 auto !important;
+        width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
 }
 
 .video-item {
     display: flex;
     flex-direction: column;
-    gap: 0.85rem;
     flex: 1 1 0;
     min-width: 0;
-    transition: flex 0.2s var(--ease), opacity 0.2s var(--ease), box-shadow 0.2s var(--ease);
+    transition: flex 0.2s var(--ease), margin 0.2s var(--ease), opacity 0.2s var(--ease), box-shadow 0.2s var(--ease);
     z-index: 1;
 }
 .video-item:hover {
-    flex: 5 1 0;
+    flex: 0 0 95vw;
+    margin-left: calc(50% - 47.5vw);
+    margin-right: calc(50% - 47.5vw);
     z-index: 10;
     box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.25);
 }
+.video-item:hover .video-title,
+.video-item:hover .video-context {
+    height: 0;
+    margin-top: 0;
+    opacity: 0;
+}
 .video-list:has(.video-item:hover) .video-item:not(:hover) {
-    flex: 0.7 1 0;
-    opacity: 0.35;
+    flex: 0 0 0;
+    opacity: 0;
+    overflow: hidden;
 }
 
 .video-frame {
@@ -957,19 +971,25 @@ img, svg { max-width: 100%; display: block; }
 }
 
 .video-title {
-    margin: 0;
+    margin: 0.85rem 0 0;
     font-size: 1.05rem;
     font-weight: 500;
     color: var(--black);
     letter-spacing: -0.01em;
+    overflow: hidden;
+    max-height: 4rem;
+    transition: max-height 0.2s var(--ease), margin-top 0.2s var(--ease), opacity 0.2s var(--ease);
 }
 
 .video-context {
-    margin: 0;
+    margin: 0.85rem 0 0;
     color: var(--muted);
     font-size: 0.9rem;
     line-height: 1.5;
     max-width: 52ch;
+    overflow: hidden;
+    max-height: 6rem;
+    transition: max-height 0.2s var(--ease), margin-top 0.2s var(--ease), opacity 0.2s var(--ease);
 }
 
 /* =========================================================
