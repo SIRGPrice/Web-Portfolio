@@ -121,9 +121,22 @@
         });
     }
 
+    function wireHoverPlay() {
+        const vids = document.querySelectorAll('video[data-hover-play]');
+        vids.forEach((v) => {
+            v.addEventListener('mouseenter', () => { v.play().catch(() => {}); });
+            v.addEventListener('mouseleave', () => { v.pause(); });
+            v.addEventListener('click', () => {
+                if (v.paused) v.play().catch(() => {});
+                else v.pause();
+            });
+        });
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
         loadRepos();
         wireMobileNav();
+        wireHoverPlay();
         const y = new Date().getFullYear();
         const fy = $('footer-year'); if (fy) fy.textContent = y;
         const hy = $('hero-year');   if (hy) hy.textContent = y;
