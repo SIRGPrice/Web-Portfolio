@@ -136,17 +136,8 @@
     function wireGalleryHover() {
         const gallery = $('gallery');
         if (!gallery) return;
-        let timer = null;
-        gallery.addEventListener('mouseenter', () => {
-            timer = setTimeout(() => {
-                gallery.classList.add('gallery-active');
-                timer = null;
-            }, 500);
-        });
-        gallery.addEventListener('mouseleave', () => {
-            if (timer) { clearTimeout(timer); timer = null; }
-            gallery.classList.remove('gallery-active');
-        });
+        gallery.addEventListener('mouseenter', () => gallery.classList.add('gallery-active'));
+        gallery.addEventListener('mouseleave', () => gallery.classList.remove('gallery-active'));
     }
 
     document.addEventListener('DOMContentLoaded', () => {
