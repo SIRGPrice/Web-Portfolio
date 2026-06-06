@@ -123,21 +123,53 @@
 
     function wireHoverPlay() {
         const vids = document.querySelectorAll('video[data-hover-play]');
+        const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
         vids.forEach((v) => {
-            v.addEventListener('mouseenter', () => { v.play().catch(() => {}); });
-            v.addEventListener('mouseleave', () => { v.pause(); });
-            v.addEventListener('click', () => {
-                if (v.paused) v.play().catch(() => {});
-                else v.pause();
-            });
+            if (isTouch) {
+                v.addEventListener('click', () => {
+                    if (v.paused) v.play().catch(() => {});
+                    else v.pause();
+                });
+            } else {
+                v.addEventListener('mouseenter', () => { v.play().catch(() => {}); });
+                v.addEventListener('mouseleave', () => { v.pause(); });
+                v.addEventListener('click', () => {
+                    if (v.paused) v.play().catch(() => {});
+                    else v.pause();
+                });
+            }
         });
     }
 
     function wireGalleryHover() {
         const gallery = $('gallery');
         if (!gallery) return;
-        gallery.addEventListener('mouseenter', () => gallery.classList.add('gallery-active'));
+        let lastOutsideY = -Infinity;
+        document.addEventListener('mousemove', (e) => {
+            const r = gallery.getBoundingClientRect();
+            const inside = e.clientX >= r.left && e.clientX <= r.right
+                        && e.clientY >= r.top && e.clientY <= r.bottom;
+            if (!inside) lastOutsideY = e.clientY;
+        });
+        gallery.addEventListener('mouseenter', () => {
+            if (lastOutsideY > gallery.getBoundingClientRect().bottom) return;
+            gallery.classList.add('gallery-active');
+        });
         gallery.addEventListener('mouseleave', () => gallery.classList.remove('gallery-active'));
+    }
+
+    function initLoader() {
+        const onLoaded = () => {
+            const fontReady = (document.fonts && document.fonts.ready)
+                ? document.fonts.ready
+                : Promise.resolve();
+            fontReady.then(() => {
+                const loader = $('loader');
+                if (loader) loader.classList.add('loaded');
+            });
+        };
+        if (document.readyState === 'complete') onLoaded();
+        else window.addEventListener('load', onLoaded);
     }
 
     document.addEventListener('DOMContentLoaded', () => {
@@ -145,9 +177,11 @@
         wireMobileNav();
         wireHoverPlay();
         wireGalleryHover();
+        initLoader();
         const y = new Date().getFullYear();
         const fy = $('footer-year'); if (fy) fy.textContent = y;
         const hy = $('hero-year');   if (hy) hy.textContent = y;
     });
 })();
+
 
